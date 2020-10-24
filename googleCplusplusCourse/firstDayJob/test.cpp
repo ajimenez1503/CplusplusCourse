@@ -51,7 +51,7 @@ void CalcMethod3(int Sales) {
   cout << "Method 3: " <<  TotalPay << endl;
 }
 
-main() {
+int main() {
   int WeeklySales;    // our input variable
 
   WeeklySales = GetInput();
@@ -60,4 +60,6 @@ main() {
   CalcMethod1();
   CalcMethod2(WeeklySales);
   CalcMethod3(WeeklySales);
+
+  return 0;
 }
