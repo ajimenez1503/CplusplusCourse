@@ -19,6 +19,7 @@ public:
     }
     void set(int h, int m, int s);
     void increment();
+    void decrement();
     void display();
 };
 
@@ -40,6 +41,24 @@ void Time::increment()
     return;
 }
 
+
+void Time::decrement()
+{
+    seconds_--;
+    if (seconds_ < 0) {
+        seconds_ += 60;
+        minutes_--;
+    }
+    if (minutes_ < 0) {
+        minutes_ += 60;
+        hours_--;
+    }
+    if (hours_ < 0) {
+        hours_ += 24;
+    }
+    return;
+}
+
 void Time::display()
 {
     cout << (hours_ % 12 ? hours_ % 12 : 12) << ':'
@@ -53,8 +72,12 @@ int main()
     Time timer;
     timer.set(23, 59, 58);
     timer.display();
-    for (int i = 0; i < 500; i++) {
-        timer.increment();
+    for (int i = 0; i < 60500; i++) {
+        timer.decrement();
         timer.display();
     }
+    // for (int i = 0; i < 500; i++) {
+    //     timer.increment();
+    //     timer.display();
+    // }
 }
